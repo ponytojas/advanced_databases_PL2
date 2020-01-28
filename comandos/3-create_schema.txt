@@ -1,0 +1,2 @@
+CREATE SCHEMA adv_ddbb
+    AUTHORIZATION "Daniel";
