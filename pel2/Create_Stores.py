@@ -40,11 +40,11 @@ for index in range (0, 200000):
 
 
 
-# In[5]:
+# In[7]:
 
 
 df = pd.DataFrame.from_dict(dict_stores)
-df.to_csv('./Tienda.csv', sep=';', index = False)
+df.to_csv('./Tienda.csv', sep=';', index = False, encoding="utf-8")
 
 
 # In[ ]:
