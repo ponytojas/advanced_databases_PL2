@@ -1,6 +1,0 @@
-CREATE TABLESPACE "Lab"
-  OWNER "Daniel"
-  LOCATION '/Users/ponytojas/Documents/uni/tablespaces/';
-
-ALTER TABLESPACE "Lab"
-  OWNER TO "Daniel";
