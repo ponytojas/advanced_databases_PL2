@@ -38,3 +38,20 @@ CREATE TABLE employee(
         ON UPDATE CASCADE
 );
 ALTER TABLE employee OWNER TO ponytojas;
+
+DROP TABLE IF EXISTS stock_item CASCADE;
+CREATE TABLE stock_item(
+	store           INTEGER 	NOT NULL,
+	barcode          	TEXT    	NOT NULL,
+	quantity        INTEGER 	NOT NULL,
+	CONSTRAINT store_item_pk   PRIMARY KEY (store, barcode),
+	CONSTRAINT store_fk    FOREIGN KEY (store)
+        REFERENCES store(id) MATCH FULL 
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE,
+	CONSTRAINT barcode_fk  FOREIGN KEY (barcode)
+        REFERENCES item(barcode) MATCH FULL
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE
+);
+ALTER TABLE stock_item OWNER TO daniel;
