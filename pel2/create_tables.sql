@@ -54,7 +54,7 @@ CREATE TABLE stock_item(
         ON DELETE CASCADE 
         ON UPDATE CASCADE
 );
-ALTER TABLE stock_item OWNER TO daniel;
+ALTER TABLE stock_item OWNER TO ponytojas;
 
 DROP TABLE IF EXISTS tickets CASCADE;
 CREATE TABLE tickets(
@@ -67,22 +67,22 @@ CREATE TABLE tickets(
         REFERENCES employee(id) MATCH FULL 
         ON DELETE SET NULL
         ON UPDATE CASCADE
-)
-ALTER TABLE tickets OWNER TO daniel;
+);
+ALTER TABLE tickets OWNER TO ponytojas;
 
 DROP TABLE IF EXISTS items_ticket CASCADE;
 CREATE TABLE items_ticket(
 	ticket_number      	INTEGER 	NOT NULL,
-    item__barcode        		TEXT    	NOT NULL,
+    item_barcode        		TEXT    	NOT NULL,
     quantity            INTEGER 	NOT NULL,
     CONSTRAINT inv_items_pk    PRIMARY KEY (ticket_number, item_barcode),
     CONSTRAINT tickets_fk     FOREIGN KEY (ticket_number) 
-        REFERENCES tickets(tiket_number) MATCH FULL
+        REFERENCES tickets(ticket_number) MATCH FULL
         ON DELETE CASCADE
         ON UPDATE CASCADE,
-		CONSTRAINT items_fk        FOREIGN KEY (product_barcode)
+		CONSTRAINT items_fk        FOREIGN KEY (item_barcode)
         REFERENCES item(barcode) MATCH FULL
         ON DELETE CASCADE
         ON UPDATE CASCADE
-) 
-ALTER TABLE items_ticket OWNER TO daniel;
+);
+ALTER TABLE items_ticket OWNER TO ponytojas;
