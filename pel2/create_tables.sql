@@ -55,3 +55,34 @@ CREATE TABLE stock_item(
         ON UPDATE CASCADE
 );
 ALTER TABLE stock_item OWNER TO daniel;
+
+DROP TABLE IF EXISTS tickets CASCADE;
+CREATE TABLE tickets(
+	ticket_number 	SERIAL		NOT NULL,
+	total_price          INTEGER     NOT NULL,
+    invoice_date    DATE        NOT NULL,
+	employee_id     INTEGER     NOT NULL,
+	CONSTRAINT ticket_pk  PRIMARY KEY(ticket_number),
+	CONSTRAINT employee_fk FOREIGN KEY(employee_id) 
+        REFERENCES employee(id) MATCH FULL 
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+)
+ALTER TABLE tickets OWNER TO daniel;
+
+DROP TABLE IF EXISTS items_ticket CASCADE;
+CREATE TABLE items_ticket(
+	ticket_number      	INTEGER 	NOT NULL,
+    item__barcode        		TEXT    	NOT NULL,
+    quantity            INTEGER 	NOT NULL,
+    CONSTRAINT inv_items_pk    PRIMARY KEY (ticket_number, item_barcode),
+    CONSTRAINT tickets_fk     FOREIGN KEY (ticket_number) 
+        REFERENCES tickets(tiket_number) MATCH FULL
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+		CONSTRAINT items_fk        FOREIGN KEY (product_barcode)
+        REFERENCES item(barcode) MATCH FULL
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) 
+ALTER TABLE items_ticket OWNER TO daniel;
