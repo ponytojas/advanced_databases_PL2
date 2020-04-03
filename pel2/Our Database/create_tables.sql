@@ -54,7 +54,7 @@ CREATE TABLE stock_item(
         ON DELETE CASCADE 
         ON UPDATE CASCADE
 );
-ALTER TABLE stock_item OWNER TO daniel;
+ALTER TABLE stock_item OWNER TO ponytojas;
 
 DROP TABLE IF EXISTS tickets CASCADE;
 CREATE TABLE tickets(
@@ -67,8 +67,8 @@ CREATE TABLE tickets(
         REFERENCES employee(id) MATCH FULL 
         ON DELETE SET NULL
         ON UPDATE CASCADE
-)
-ALTER TABLE tickets OWNER TO daniel;
+);
+ALTER TABLE tickets OWNER TO ponytojas;
 
 DROP TABLE IF EXISTS items_ticket CASCADE;
 CREATE TABLE items_ticket(
@@ -84,5 +84,5 @@ CREATE TABLE items_ticket(
         REFERENCES item(barcode) MATCH FULL
         ON DELETE CASCADE
         ON UPDATE CASCADE
-) 
-ALTER TABLE items_ticket OWNER TO daniel;
+);
+ALTER TABLE items_ticket OWNER TO ponytojas;
