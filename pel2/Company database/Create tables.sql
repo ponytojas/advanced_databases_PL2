@@ -27,8 +27,8 @@ CREATE TABLE project_employee(
 	CONSTRAINT employee_number_fk	FOREIGN KEY (employee_number)
         REFERENCES staff(employee_number) MATCH FULL
         ON DELETE RESTRICT
-        ON UPDATE CASCADE
-	CONSTRAINT projects_number_fk 	FOREIGN KEY (projects_number)
+        ON UPDATE CASCADE,
+	CONSTRAINT projects_number_fk 	FOREIGN KEY (project_number)
         REFERENCES projects(project_number) MATCH FULL
         ON DELETE RESTRICT
         ON UPDATE CASCADE
