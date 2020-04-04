@@ -4,6 +4,7 @@
 import random as rd
 import psycopg2
 from datetime import datetime as dt
+import pandas as pd
 
 def create_stock_tickets_csv(connection):
 
@@ -37,15 +38,15 @@ def create_stock_tickets_csv(connection):
             
             barcode = barcode[0]
 
-            list_for_csv.append(
+            list_to_csv.append(
                 {
-                "ticket_number" = ticket[0], 
-                "Barcode_item" = barcode, 
-                "Quantity" = rd.randint(1,10)
+                'ticket_number' : ticket[0], 
+                'Barcode_item' : barcode, 
+                'Quantity' : rd.randint(1,10)
                 }
                 )
 
-    df = pd.DataFrame.from_dict(list_for_csv)
+    df = pd.DataFrame.from_dict(list_to_csv)
     df.to_csv('./Our_Database/GeneratedCSV/stock_ticket_data.csv', sep=';', index = False, encoding="utf-8")
 
 
@@ -53,7 +54,7 @@ def create_stock_tickets_csv(connection):
 
 if __name__ == "__main__":
     password = str
-    password = input("Introduce your postgres password")
+    password = input("Introduce your postgres password: ")
     try:
         print('Trying to connect to DataBase')
         connection = psycopg2.connect(host="localhost",database="pel2", user="postgres", password=password)

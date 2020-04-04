@@ -16,7 +16,7 @@ def create_employee_csv():
     men_list = men_df['nombre'].to_list()
     del men_df
 
-    women_df = pd.read_csv('./NameAndSurname/mujeres.csv')
+    women_df = pd.read_csv('./Our_Database/NameAndSurname/mujeres.csv')
     women_list = women_df['nombre'].to_list()
     del women_df
 
@@ -24,8 +24,8 @@ def create_employee_csv():
 
     rd.shuffle(names_list)
 
-    surname_df = pd.read_csv('./NameAndSurname/apellidos.csv')
-    surname_df2 = pd.read_csv('./NameAndSurname/apellidos-20.csv')
+    surname_df = pd.read_csv('./Our_Database/NameAndSurname/apellidos.csv')
+    surname_df2 = pd.read_csv('./Our_Database/NameAndSurname/apellidos-20.csv')
     surname_list = surname_df['apellido'].to_list() + surname_df2['apellido'].to_list()
 
     del surname_df
@@ -42,12 +42,13 @@ def create_employee_csv():
 
     for index in range(1000000):
         temp = {}
+        temp['Tienda'] = int(rd.randint(1,200000))
         tempDNI = generarDNI(random_numbers[index])
         temp['DNI'] = tempDNI
         temp['Nombre'] = rd.choice(names_list)
         temp['Apellidos'] = rd.choice(surname_list)+ ' ' + rd.choice(surname_list)
         temp['Puesto'] = rd.choice(puestos)
-        temp['Salario'] = rd.randint(1000, 5000)
+        temp['Salario'] = int(rd.randint(1000, 5000))
         result_list.append(temp)
 
     df = pd.DataFrame(result_list)

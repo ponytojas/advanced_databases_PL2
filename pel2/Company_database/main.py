@@ -9,11 +9,11 @@ def create_company_databases():
     print('Reading the SQL file')
     sql = s = " ".join(file.readlines())
     print('Creating SQL query')
-        password = str
-    password = input("Introduce your postgres password")
+    password = str
+    password = input("Introduce your postgres password: ")
     try:
         print('Trying to connect to DataBase')
-        connection = psycopg2.connect(host="localhost",database="pel2", user="postgres", password=password)
+        connection = psycopg2.connect(host="localhost",database="company", user="postgres", password=password)
     except (Exception, psycopg2.Error) as error :
         print ("Error while connecting to PostgreSQL", error)
     cursor = connection.cursor()

@@ -4,7 +4,7 @@
 import pandas as pd
 import random as rd
 
-def create_item_csv:
+def create_item_csv():
 
     counter = 1
     item_name =[]
@@ -35,7 +35,7 @@ def create_item_csv:
 
     dict_items
 
-    df = pd.DataFrame.from_dict(dict_items, index=False)
+    df = pd.DataFrame.from_dict(dict_items)
 
     df.to_csv('./Our_Database/GeneratedCSV/item_data.csv', sep=';', index = False)
 

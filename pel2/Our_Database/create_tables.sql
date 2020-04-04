@@ -25,7 +25,7 @@ CREATE TABLE employee(
 	dni					TEXT		NOT NULL,
 	first_name			TEXT		NOT NULL,
 	last_name 			TEXT		NOT NULL,
-	position 		   TEXT		   NOT NULL ,
+	position 		   	TEXT		   NOT NULL ,
 	salary				INTEGER		NOT NULL,
 	CONSTRAINT employee_pk 	    PRIMARY KEY (id),
 	CONSTRAINT employee_dni		UNIQUE (dni),
