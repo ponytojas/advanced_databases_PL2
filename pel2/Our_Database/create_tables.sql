@@ -7,8 +7,6 @@ CREATE TABLE store(
 	province			TEXT        NOT NULL,
 	CONSTRAINT store_pk PRIMARY KEY (id)
 );
-ALTER TABLE store OWNER TO ponytojas;
-
 
 DROP TABLE IF EXISTS item CASCADE;
 CREATE TABLE item(
@@ -19,7 +17,6 @@ CREATE TABLE item(
 	price              INTEGER     NOT NULL,
 	CONSTRAINT item_pk  PRIMARY KEY(barcode)
 );
-ALTER TABLE item OWNER TO ponytojas;
 
 DROP TABLE IF EXISTS employee CASCADE;
 CREATE TABLE employee(
@@ -37,7 +34,6 @@ CREATE TABLE employee(
         ON DELETE RESTRICT
         ON UPDATE CASCADE
 );
-ALTER TABLE employee OWNER TO ponytojas;
 
 DROP TABLE IF EXISTS stock_item CASCADE;
 CREATE TABLE stock_item(
@@ -54,7 +50,6 @@ CREATE TABLE stock_item(
         ON DELETE CASCADE 
         ON UPDATE CASCADE
 );
-ALTER TABLE stock_item OWNER TO ponytojas;
 
 DROP TABLE IF EXISTS tickets CASCADE;
 CREATE TABLE tickets(
@@ -68,7 +63,6 @@ CREATE TABLE tickets(
         ON DELETE SET NULL
         ON UPDATE CASCADE
 );
-ALTER TABLE tickets OWNER TO ponytojas;
 
 DROP TABLE IF EXISTS items_ticket CASCADE;
 CREATE TABLE items_ticket(
@@ -85,4 +79,3 @@ CREATE TABLE items_ticket(
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
-ALTER TABLE items_ticket OWNER TO ponytojas;

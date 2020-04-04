@@ -11,7 +11,6 @@ def generarDNI(numero):
     return dni
 
 def create_employee_csv():
-    t = time.time()
 
     men_df = pd.read_csv('./Our_Database/NameAndSurname/hombres.csv')
     men_list = men_df['nombre'].to_list()
@@ -52,11 +51,7 @@ def create_employee_csv():
         result_list.append(temp)
 
     df = pd.DataFrame(result_list)
-    df.to_csv('./Our_Database/Employees.csv', sep=';', index=False)
-    print("Finished")
-    elapsed = time.time() - t
-    print('It takes: ' + str(elapsed))
-
+    df.to_csv('./Our_Database/GeneratedCSV/employee_data.csv', sep=';', index=False)
 
 if __name__ == "__main__" :
     create_employee_csv()

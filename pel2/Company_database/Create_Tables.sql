@@ -32,8 +32,6 @@ CREATE TABLE project_employee(
         ON UPDATE CASCADE
 );
 
-COPY staff FROM '/Users/ponytojas/Downloads/table_data/staff_data.csv' WITH (FORMAT csv);
-COPY projects FROM '/Users/ponytojas/Downloads/table_data/projects_data.csv' WITH (FORMAT csv);
-COPY project_employee FROM '/Users/ponytojas/Downloads/table_data/project_employee_data.csv' WITH (FORMAT csv);
-
-
+COPY staff FROM 'C:/Users/Daniel/Documents/Universidad/GitHub/BBDD_advanzadas/advanced_databases_PL2/pel2/Company_database/staff_data.csv' WITH (FORMAT csv);
+COPY projects FROM 'C:/Users/Daniel/Documents/Universidad/GitHub/BBDD_advanzadas/advanced_databases_PL2/pel2/Company_database/projects_data.csv' WITH (FORMAT csv);
+COPY project_employee FROM 'C:/Users/Daniel/Documents/Universidad/GitHub/BBDD_advanzadas/advanced_databases_PL2/pel2/Company_database/project_employee_data.csv' WITH (FORMAT csv);

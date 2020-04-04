@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 from Company_database.main import create_company_databases as create_company
+from Our_Database.main import create_database as create_store_databse
 
 def main():
     exit = 0
@@ -14,7 +15,7 @@ def main():
         if(user_input == 'a'):
             create_company()
         elif(user_input == 'b'):
-            pass
+            create_store_databse()
         elif(user_input == 's'):
             exit = 1
         else:
