@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import random as rd
+import pandas as pd
 import psycopg2
 from datetime import datetime as dt
 

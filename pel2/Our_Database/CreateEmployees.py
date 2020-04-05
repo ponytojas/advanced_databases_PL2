@@ -12,11 +12,11 @@ def generarDNI(numero):
 
 def create_employee_csv():
 
-    men_df = pd.read_csv('./pel2/Our_Database/NameAndSurname/hombres.csv')
+    men_df = pd.read_csv('./Our_Database/NameAndSurname/hombres.csv')
     men_list = men_df['nombre'].to_list()
     del men_df
 
-    women_df = pd.read_csv('./pel2/Our_Database/NameAndSurname/mujeres.csv')
+    women_df = pd.read_csv('./Our_Database/NameAndSurname/mujeres.csv')
     women_list = women_df['nombre'].to_list()
     del women_df
 
@@ -24,8 +24,8 @@ def create_employee_csv():
     names_list = list(filter(lambda x: x != "", names_list))
 
 
-    surname_df = pd.read_csv('./pel2/Our_Database/NameAndSurname/apellidos.csv')
-    surname_df2 = pd.read_csv('./pel2/Our_Database/NameAndSurname/apellidos-20.csv')
+    surname_df = pd.read_csv('./Our_Database/NameAndSurname/apellidos.csv')
+    surname_df2 = pd.read_csv('./Our_Database/NameAndSurname/apellidos-20.csv')
     surname_list = surname_df['apellido'].to_list() + surname_df2['apellido'].to_list()
 
     del surname_df
@@ -51,8 +51,7 @@ def create_employee_csv():
 
     df = pd.DataFrame(result_list)
     df['Nombre'] = df['Nombre'].fillna('TELESFORO')
-    df.to_csv('./pel2/Our_Database/GeneratedCSV/employee_data.csv', sep=';', index=False, header=False)
-    print('1')
+    df.to_csv('./Our_Database/GeneratedCSV/employee_data.csv', sep=';', index=False, header=False)
 
 if __name__ == "__main__" :
     create_employee_csv()

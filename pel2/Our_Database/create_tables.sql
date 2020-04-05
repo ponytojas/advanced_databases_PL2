@@ -64,8 +64,8 @@ CREATE TABLE tickets(
         ON UPDATE CASCADE
 );
 
-DROP TABLE IF EXISTS items_ticket CASCADE;
-CREATE TABLE items_ticket(
+DROP TABLE IF EXISTS stock_ticket CASCADE;
+CREATE TABLE stock_ticket(
 	ticket_number      	INTEGER 	NOT NULL,
     item_barcode        TEXT    	NOT NULL,
     quantity            INTEGER 	NOT NULL,

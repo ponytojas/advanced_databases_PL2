@@ -37,8 +37,6 @@ def create_stock_item_csv(connection):
             
             barcode = barcode[0]
 
-
-
             list_to_csv.append(
                 {
                 'Store_id' : store[0], 
