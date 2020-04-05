@@ -35,7 +35,7 @@ def create_tickets_csv(connection):
         list_to_csv.append(
         {        
         'Barcode_item' : rd.randint(100,10000), 
-        'Date' : rd.randint(10,200),
+        'Date' : random_day,
         'Employee_id' : id_employee[0], 
         }
         )

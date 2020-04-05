@@ -13,7 +13,7 @@ CREATE TABLE item(
 	barcode            TEXT        NOT NULL,
 	name               TEXT        NOT NULL,
 	type               TEXT        NOT NULL,
-	descripction        TEXT 		NOT NULL,
+	descripction       TEXT 		NOT NULL,
 	price              INTEGER     NOT NULL,
 	CONSTRAINT item_pk  PRIMARY KEY(barcode)
 );
@@ -38,7 +38,7 @@ CREATE TABLE employee(
 DROP TABLE IF EXISTS stock_item CASCADE;
 CREATE TABLE stock_item(
 	store           INTEGER 	NOT NULL,
-	barcode          	TEXT    	NOT NULL,
+	barcode         TEXT    	NOT NULL,
 	quantity        INTEGER 	NOT NULL,
 	CONSTRAINT store_item_pk   PRIMARY KEY (store, barcode),
 	CONSTRAINT store_fk    FOREIGN KEY (store)
@@ -54,8 +54,8 @@ CREATE TABLE stock_item(
 DROP TABLE IF EXISTS tickets CASCADE;
 CREATE TABLE tickets(
 	ticket_number 	SERIAL		NOT NULL,
-	total_price          INTEGER     NOT NULL,
-    invoice_date    DATE        NOT NULL,
+	total_price     INTEGER     NOT NULL,
+    ticket_date    	DATE        NOT NULL,
 	employee_id     INTEGER     NOT NULL,
 	CONSTRAINT ticket_pk  PRIMARY KEY(ticket_number),
 	CONSTRAINT employee_fk FOREIGN KEY(employee_id) 
@@ -67,7 +67,7 @@ CREATE TABLE tickets(
 DROP TABLE IF EXISTS items_ticket CASCADE;
 CREATE TABLE items_ticket(
 	ticket_number      	INTEGER 	NOT NULL,
-    item_barcode        		TEXT    	NOT NULL,
+    item_barcode        TEXT    	NOT NULL,
     quantity            INTEGER 	NOT NULL,
     CONSTRAINT inv_items_pk    PRIMARY KEY (ticket_number, item_barcode),
     CONSTRAINT tickets_fk     FOREIGN KEY (ticket_number) 
