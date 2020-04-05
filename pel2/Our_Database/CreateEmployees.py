@@ -12,34 +12,24 @@ def generarDNI(numero):
 
 def create_employee_csv():
 
-    men_df = pd.read_csv('./Our_Database/NameAndSurname/hombres.csv')
+    men_df = pd.read_csv('./pel2/Our_Database/NameAndSurname/hombres.csv')
     men_list = men_df['nombre'].to_list()
     del men_df
 
-    women_df = pd.read_csv('./Our_Database/NameAndSurname/mujeres.csv')
+    women_df = pd.read_csv('./pel2/Our_Database/NameAndSurname/mujeres.csv')
     women_list = women_df['nombre'].to_list()
     del women_df
 
     names_list = list(filter(None,men_list)) + list(filter(None,women_list)) 
+    names_list = list(filter(lambda x: x != "", names_list))
 
-    names_list = names_list[:-1]
 
-    df = pd.DataFrame(names_list)
-    df.to_csv('./Our_Database/GeneratedCSV/names_list.csv', sep=';', index=False)
-    print(df)
-
-    names_list = names_list[:-1]
-
-    rd.shuffle(names_list)
-
-    surname_df = pd.read_csv('./Our_Database/NameAndSurname/apellidos.csv')
-    surname_df2 = pd.read_csv('./Our_Database/NameAndSurname/apellidos-20.csv')
+    surname_df = pd.read_csv('./pel2/Our_Database/NameAndSurname/apellidos.csv')
+    surname_df2 = pd.read_csv('./pel2/Our_Database/NameAndSurname/apellidos-20.csv')
     surname_list = surname_df['apellido'].to_list() + surname_df2['apellido'].to_list()
 
     del surname_df
     del surname_df2
-
-    rd.shuffle(surname_list)
 
     puestos = ['Encargado', 'Reponedor', 'Cajero', 'Dependiente']
 
@@ -54,16 +44,15 @@ def create_employee_csv():
         tempDNI = generarDNI(random_numbers[index])
         temp['DNI'] = tempDNI
         temp['Nombre'] = rd.choice(names_list)
-        while (not temp['Nombre']) :
-            temp['Nombre'] = rd.choice(names_list)
         temp['Apellidos'] = rd.choice(surname_list)+ ' ' + rd.choice(surname_list)
         temp['Puesto'] = rd.choice(puestos)
         temp['Salario'] = int(rd.randint(1000, 5000))
         result_list.append(temp)
-    print(result_list[-1])
+
     df = pd.DataFrame(result_list)
-    df.to_csv('./Our_Database/GeneratedCSV/employee_data.csv', sep=';', index=False, header=False)
-    print(df)
+    df['Nombre'] = df['Nombre'].fillna('TELESFORO')
+    df.to_csv('./pel2/Our_Database/GeneratedCSV/employee_data.csv', sep=';', index=False, header=False)
+    print('1')
 
 if __name__ == "__main__" :
     create_employee_csv()
