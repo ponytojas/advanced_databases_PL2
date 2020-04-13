@@ -1,1 +1,1 @@
-from .main import create_company
+from .main import main
